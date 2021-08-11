@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% block content %}
+
+
+<div class="container mt-4 mb-2" style="background-color: #FFFFFF;">
+    
+        <h5 >Name:{{ object.Name }}</h5>
+        <img src="{{ object.Image.url  }}" class="img img-fluid rounded-circle" style="width: 200px; height:200px;">
+  
+ 
+        <h5><span>Change your profile settings</span></h5>
+        
+<form enctype="multipart/form-data" method="POST">
+    {% csrf_token %}
+    {{ form|crispy}}
+    <input type="submit" value="Create Profile" name="Profile" class="btn btn-dark btn-lg">
+</form>
+<ul>
+    <li><a href="{% url 'login' %}" class="text-secondary">Signin with another account</a></li>
+    <li><a href="{% url 'password_change' %}" class="text-secondary mb-2">To change password click here</a>
+    </li>
+</uL>
+</div>
+
+{% endblock %}

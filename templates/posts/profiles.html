@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block content %}
+<h3 class="text-center">Profiles details</h3>
+    {% for profile in profiles %}
+    <div class="container mt-5 mb-5" style="background-color: #FFFFFF;">
+    <img src="{{ profile.Image.url }} "  class="figure-img img-fluid rounded mt-5" alt="A generic square placeholder image with rounded corners in a figure." style="width: 300px; height: 300px;">
+    <h5 class="text-secondary"><span class="text-dark">Tailor Name:</span> {{ profile.User.username }}</h5>
+    <h5 class="text-secondary mb-2"><span class="text-dark">Shop address:</span>{{ profile.shop_address }}</h5>
+    <h5 class="text-secondary mb-2"><span class="text-dark">Active_orders:{{ profile.profiles_order_set.count }}</span></h5>
+    <a class="btn btn-secondary mt-2 mb-2" href="{% url 'profile_order' profile.id %}"><h5 class="text-light">Place order</h5></a>
+    </div>
+    {% endfor %}
+
+
+
+
+
+{%  endblock %}
+
+
+

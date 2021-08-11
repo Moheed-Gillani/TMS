@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+
+
+<div class="container mt-5">
+    <img src="{{ post.image.url }}"  class="figure-img img-fluid rounded" alt="A generic square placeholder image with rounded corners in a figure.">
+<p>Your order to this  {{ post }} of price {{ post.price }} You will get your order in 7 working days has been taken you will be notified by The SMS to the number you posted here furhter information like measurment will be taken on a call </p>
+
+</form>
+</div>
+{% endblock %}
